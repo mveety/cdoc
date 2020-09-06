@@ -1,0 +1,42 @@
+cdoc -- like godoc but worse and for c
+
+Synopsis:
+    cdoc allows you to embed documentation into C files and extract the
+    docs out of the file, search for docs in a file, and search for
+    functions in a file.
+
+Usage: cdoc [-h] [-S [-t n]] [-s search term] [-f output] [files...]
+    -s search term
+        search for a function definition and print the documentation
+    -f output file
+        pipe the output to a file
+    -h
+        print this message
+    -S
+        prefer spaces over tabs
+    -t n
+        use n spaces for tabulation (with -S)
+
+Problems:
+    * The parser is pretty ad-hoc and could be significantly improved
+    * The formatting of generated documentation is pretty limited and
+        could be significantly improved by (possibly) having cdoc do
+        the tabulations itself instead of using \t and the terminal.
+        This would also enforce some standardized tab size.
+    * Everything is really vulnerable to buffer overflows.
+    * It's pretty fragile.
+    * Lex kinda sucks.
+    * It's pretty quick and dirty. Could use some refactoring I think.
+
+Contributing:
+	Submit patches by getting in touch or via bitbucket. Be sure not to
+	include config.mk if you've made any changes to it. I suggest adding
+	these lines to you .hg/hgrc:
+		[defaults]
+		commit = -X config.mk
+		status = -X config.mk
+		diff = -X config.mk
+
+Bugs:
+    yes.
+
